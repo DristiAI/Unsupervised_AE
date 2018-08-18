@@ -1,0 +1,27 @@
+import docx2txt
+import os
+import subprocess
+PATH = os.path.dirname('/home/aidris/Videos/task/ImageDuplication/')
+
+
+SOURCE = os.path.join(PATH,'UseCase1/')
+t=0
+def main():
+
+    for root, dirs, filenames in os.walk(SOURCE):
+        for f in filenames:
+            try:
+                filename, file_extension = os.path.splitext(f)
+                if filename_extension !='.docx':
+                    print('Found a .doc file.. Converting to .docx ....')
+                    subprocess.call(['soffice','--headless','--convert-to','docx',f])
+                directory = os.path.join(PATH, "images/%s" % filename)
+                if not os.path.exists(directory):
+                    os.makedirs(directory)
+
+                docx2txt.process("%s%s" % (source, f), directory)
+            except:
+                pass
+
+if __name__ == "__main__":
+    main()

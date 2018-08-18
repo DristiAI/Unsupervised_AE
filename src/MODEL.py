@@ -82,13 +82,13 @@ class AutoEn(Architecture):
         return encoder,decoder
     
 
-    def AutoEn_struct(self):
+    def AutoEn_struct(self,encoder,decoder):
 
         """
         exposed api used
         """
 
-        encoder,decoder = self.build_model()
+        
         #print(encoder.summary(),decoder.summary())
 
         Inp_ae = Input(shape=self.shape)
